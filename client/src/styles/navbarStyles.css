@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #3b4750;
+}
+
+.navbar__logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.5rem;
+}
+
+.navbar__icon {
+  display: inline-block;
+  /* background-color: #000; */
+  margin-left: 1rem;
+  padding: 1rem;
+  border-radius: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.navbar__icon:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar__icon svg {
+  width: 2rem;
+  height: 2rem;
+}
