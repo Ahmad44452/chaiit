@@ -9,7 +9,10 @@ const Overlay = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="overlay">
+    <div className="overlay" onClick={(event) => {
+      if (event.target.classList.contains("overlay"))
+        dispatch(hideOverlay())
+    }} >
       <div className="overlay__container">
         <div className="overlay__close">
           <AiOutlineClose onClick={() => dispatch(hideOverlay())} />

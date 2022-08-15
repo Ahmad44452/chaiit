@@ -10,16 +10,17 @@
 .navbar__logo {
   font-family: "Dancing Script", cursive;
   font-size: 3.5rem;
+  user-select: none;
 }
 
 .navbar__icon {
   display: inline-block;
-  /* background-color: #000; */
   margin-left: 1rem;
   padding: 1rem;
   border-radius: 100%;
   transition: all 0.5s;
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .navbar__icon:hover {

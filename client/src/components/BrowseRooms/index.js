@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Navbar from "../Navbar";
+
+import NavbarHoc from "../../hoc/NavbarHoc";
 
 import { historyObject } from "../../AppRoutes";
 
@@ -16,8 +17,9 @@ const BrowseRooms = () => {
 
   return (
     <>
-      <Navbar />
-      <h1>BrowseRooms</h1>
+      <NavbarHoc>
+        <h1>BrowseRooms</h1>
+      </NavbarHoc>
     </>
   )
 }
