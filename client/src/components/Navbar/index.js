@@ -1,7 +1,13 @@
 import React from "react";
 import { AiOutlineUser, AiOutlineInfo } from "react-icons/ai";
+import { useDispatch } from "react-redux"
+
+import { showOverlay } from "../../store/slices/overlaySlice";
 
 const Navbar = () => {
+
+  const dispatch = useDispatch();
+
   return (
     <nav className="navbar">
       <div className="navbar__left">
@@ -9,10 +15,10 @@ const Navbar = () => {
       </div>
       <div className="navbar__right">
         <div className="navbar__icon navbar__icon--user">
-          <AiOutlineUser />
+          <AiOutlineUser onClick={() => dispatch(showOverlay("user"))} />
         </div>
         <div className="navbar__icon navbar__icon--info">
-          <AiOutlineInfo />
+          <AiOutlineInfo onClick={() => dispatch(showOverlay("info"))} />
         </div>
       </div>
     </nav>
