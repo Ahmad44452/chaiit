@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Overlay from "../components/Overlays/Overlay";
 import UserOverlayContent from "../components/Overlays/UserOverlayContent";
 import InfoOverlayContent from "../components/Overlays/InfoOverlayContent";
+import CreateNewOverlayContent from "../components/Overlays/createNewOverlayContent";
 
 const MainLayout = (props) => {
 
@@ -14,9 +15,17 @@ const MainLayout = (props) => {
       {
         overlayReducer && overlayReducer.visibility ?
           <Overlay>
-            {
-              overlayReducer && overlayReducer.component === "info" ?
-                <InfoOverlayContent /> : <UserOverlayContent />
+            {(() => {
+              if (overlayReducer) {
+                if (overlayReducer.component === "info") {
+                  return <InfoOverlayContent />
+                } else if (overlayReducer.component === "user") {
+                  return <UserOverlayContent />
+                } else if (overlayReducer.component === "createRoom") {
+                  return <CreateNewOverlayContent />
+                }
+              }
+            })()
             }
           </Overlay> : null
       }

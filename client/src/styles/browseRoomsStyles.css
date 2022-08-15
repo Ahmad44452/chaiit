@@ -1,0 +1,67 @@
+.browseRooms {
+  padding: 2rem 3rem;
+}
+
+.browseRooms__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.browseRooms__header--heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.browseRooms__header--button {
+  display: flex;
+  background-color: #e6e8e6;
+  color: #2c3333;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+  user-select: none;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: normal;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+}
+
+.browseRooms__header--button svg {
+  color: #2c3333;
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-left: 0.7rem;
+  transition: all 0.2s;
+}
+
+.browseRooms__header--button:hover {
+  background-color: #169873;
+  color: #e6e8e6;
+}
+
+.browseRooms__header--button:hover svg {
+  color: #e6e8e6;
+}
+
+@media (max-width: 530px) {
+  .browseRooms__header {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .browseRooms__header--heading {
+    margin-top: 1.5rem;
+  }
+
+  .browseRooms__header--button {
+    justify-content: center;
+    width: 100%;
+  }
+}

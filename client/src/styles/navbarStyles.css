@@ -31,3 +31,9 @@
   width: 2rem;
   height: 2rem;
 }
+
+@media (max-width: 530px) {
+  .navbar__icon {
+    margin-left: -2px;
+  }
+}
