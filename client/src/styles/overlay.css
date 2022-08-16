@@ -1,8 +1,5 @@
 .overlay {
   position: absolute;
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   z-index: 100;
   width: 100vw;
   height: 100vh;
@@ -14,8 +11,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  /* width: 80%;
+  height: 60%; */
   background-color: #fff;
   overflow: hidden;
   border-radius: 5px;
@@ -23,7 +20,7 @@
 
 .overlay__close {
   position: absolute;
-  top: 4px;
+  top: 6px;
   right: 1px;
 }
 
@@ -37,3 +34,104 @@
 .overlay__close svg:hover {
   color: red;
 }
+
+/* CREATE ROOM (START) */
+/* CREATE ROOM (START) */
+/* CREATE ROOM (START) */
+
+.createRoom__container {
+  padding: 5rem 8rem;
+}
+
+.createRoom__heading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #169873;
+  margin-bottom: 1rem;
+}
+
+.createRoom__form {
+  overflow: hidden;
+}
+
+.createRoom__form--input,
+.createRoom__form--input:focus {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: #e8e8e8;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.8rem;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.createRoom__form--textarea,
+.createRoom__form--textarea:focus {
+  font-family: "Lato", sans-serif;
+  resize: none;
+  font-size: 1.6rem;
+}
+
+.createRoom__form--input-error {
+  display: inline-block;
+  width: 100%;
+  background-color: #d61c4e;
+  color: #fff;
+  padding: 1px 1.5rem;
+  font-size: 1.2rem;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 0.4s;
+}
+
+.createRoom__form--input-error-visible {
+  transform: scaleY(100%);
+}
+
+.createRoom__form--button {
+  margin: 2rem 0 0 auto;
+  display: block;
+  background-color: #e8e8e8;
+  color: #757575;
+  outline: none;
+  border: none;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.6s, color 0.3s;
+}
+
+.createRoom__form--button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom;
+  transform: scaleY(8%);
+  background-color: #169873;
+  transition: transform 0.6s;
+}
+
+.createRoom__form--button-error::after {
+  background-color: #d61c4e;
+}
+.createRoom__form--button:hover {
+  background-color: transparent;
+  color: #e8e8e8;
+}
+
+.createRoom__form--button:hover::after {
+  transform: scaleY(100%);
+  z-index: -1;
+}
+
+/* CREATE ROOM (END) */
+/* CREATE ROOM (END) */
+/* CREATE ROOM (END) */

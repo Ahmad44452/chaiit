@@ -57,9 +57,6 @@ const LoginPage = () => {
                 </>
               )
             }
-
-
-            {/* <div className="login__button">Enter</div> */}
           </form>
         </div>
       </div>
