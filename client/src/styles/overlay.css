@@ -52,6 +52,7 @@
 
 .createRoom__form {
   overflow: hidden;
+  min-width: 50rem;
 }
 
 .createRoom__form--input,
@@ -74,8 +75,7 @@
 }
 
 .createRoom__form--input-error {
-  display: inline-block;
-  width: 100%;
+  /* display: inline-block; */
   background-color: #d61c4e;
   color: #fff;
   padding: 1px 1.5rem;
