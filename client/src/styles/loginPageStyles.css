@@ -1,10 +1,22 @@
+:root {
+  --color-primary: #1c2121;
+  --color-secondary: #e6e8e6;
+  --color-bg-line: #3b4750;
+  --color-green: #169873;
+  --color-error-bg: #d61c4e;
+  --color-error: #e6e8e6;
+
+  --color-red: #d61c4e;
+  --color-white: #fff;
+}
+
 .login-container {
   min-height: 100vh;
-  background-color: #25333d;
+  background-color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--color-secondary);
 }
 
 .login__left,
@@ -32,7 +44,7 @@
   top: 50%;
   transform: translateY(-50%);
   width: 1px;
-  background-color: #3b4750;
+  background-color: var(--color-bg-line);
   height: 50%;
 }
 
@@ -40,7 +52,7 @@
   font-family: "Dancing Script", cursive;
   font-weight: 700;
   font-size: 5rem;
-  color: #fff;
+  color: var(--color-secondary);
   user-select: none;
 }
 
@@ -62,14 +74,14 @@
   left: 0;
   height: 1px;
   width: 100%;
-  background-color: #3b4750;
+  background-color: var(--color-bg-line);
 }
 
 .login__input,
 .login__input:focus {
   outline: none;
   background-color: transparent;
-  border: 2px solid #3b4750;
+  border: 2px solid var(--color-bg-line);
   padding: 2rem;
   border-radius: 5px;
   color: #fff;
@@ -79,22 +91,22 @@
 }
 
 .login__input:focus {
-  border: 2px solid #169873;
+  border: 2px solid var(--color-green);
 }
 
 .login__input::placeholder {
-  color: #4e5961;
+  color: var(--color-bg-line);
   opacity: 1;
 }
 
 .login__input--error,
 .login__input--error:focus {
-  border: 2px solid #f8d7da;
+  border: 2px solid var(--color-error-bg);
 }
 
 .login__error {
-  background-color: #f8d7da;
-  color: #721c4d;
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
   font-size: 1.5rem;
   padding: 1rem 1rem 1rem 1rem;
   transform: translateY(3px);
@@ -114,8 +126,8 @@
 }
 
 .login__button {
-  background-color: #169873;
-  color: #fff;
+  background-color: var(--color-green);
+  color: var(--color-secondary);
   text-align: center;
   padding: 2rem 0;
   border-radius: 5px;
@@ -145,8 +157,8 @@
 }
 
 .login__button--error {
-  background-color: #f8d7da;
-  color: #000;
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
 }
 
 @media (max-width: 760px) {

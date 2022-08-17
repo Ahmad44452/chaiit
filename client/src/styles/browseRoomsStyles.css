@@ -1,3 +1,15 @@
+:root {
+  --color-primary: #1c2121;
+  --color-secondary: #e6e8e6;
+  --color-bg-line: #3b4750;
+  --color-green: #169873;
+  --color-error-bg: #d61c4e;
+  --color-error: #e6e8e6;
+
+  --color-red: #d61c4e;
+  --color-white: #fff;
+}
+
 .browseRooms {
   padding: 2rem;
 }
@@ -11,13 +23,13 @@
 .browseRooms__header--heading {
   font-size: 2rem;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--color-secondary);
 }
 
 .browseRooms__header--button {
   display: flex;
-  background-color: #e6e8e6;
-  color: #2c3333;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   padding: 1rem 3rem;
   border-radius: 5px;
   user-select: none;
@@ -34,7 +46,7 @@
 }
 
 .browseRooms__header--button svg {
-  color: #2c3333;
+  color: var(--color-primary);
   width: 1.8rem;
   height: 1.8rem;
   margin-left: 0.7rem;
@@ -42,12 +54,12 @@
 }
 
 .browseRooms__header--button:hover {
-  background-color: #169873;
-  color: #e6e8e6;
+  background-color: var(--color-green);
+  color: var(--color-secondary);
 }
 
 .browseRooms__header--button:hover svg {
-  color: #e6e8e6;
+  color: var(--color-secondary);
 }
 
 .browseRooms__rooms {
@@ -75,8 +87,8 @@
 /* ROOM CARD STYLES START*/
 
 .roomCard {
-  background-color: #1c2121;
-  color: #e6e8e6;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
   padding: 0 2rem;
   border-radius: 5px;
   cursor: default;
@@ -92,7 +104,6 @@
 .roomCard__description {
   text-align: justify;
   padding: 1rem 0;
-  /* margin-top: 0.8rem; */
   font-size: 1.4rem;
   position: relative;
 }
@@ -104,7 +115,7 @@
   left: 0;
   height: 1px;
   width: 100%;
-  background-color: #e6e8e6;
+  background-color: var(--color-primary);
 }
 
 .roomCard__button--container {
@@ -112,10 +123,10 @@
 }
 
 .roomCard__button {
-  color: #e6e8e6;
+  color: var(--color-primary);
   -webkit-tap-highlight-color: transparent;
   outline: none;
-  border: 1px solid #e6e8e6;
+  border: 1px solid var(--color-primary);
   background-color: transparent;
   font-size: 1.8rem;
   border-radius: 8px;
@@ -125,20 +136,20 @@
   padding: 0.6rem 4rem;
   cursor: pointer;
   margin-bottom: 1rem;
-  transition: all 0.5s;
+  transition: all 0.3s;
 }
 
 .roomCard__button:hover {
-  background-color: #e6e8e6;
-  color: #1c2121;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
 }
 
-.roomCard__bottom {
+/* .roomCard__bottom {
   transform-origin: top;
   transform: scaleY(0);
   max-height: 0;
   transition: all 0.5s;
-}
+} */
 
 .roomCard:hover > .roomCard__bottom {
   transform: scaleY(100%);
@@ -153,8 +164,8 @@
   }
 
   .roomCard__button {
-    background-color: #e6e8e6;
-    color: #1c2121;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
   }
 }
 

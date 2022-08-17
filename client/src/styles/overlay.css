@@ -1,3 +1,15 @@
+:root {
+  --color-primary: #1c2121;
+  --color-secondary: #e6e8e6;
+  --color-bg-line: #3b4750;
+  --color-green: #169873;
+  --color-error-bg: #d61c4e;
+  --color-error: #e6e8e6;
+
+  --color-red: #d61c4e;
+  --color-white: #fff;
+}
+
 .overlay {
   position: absolute;
   z-index: 100;
@@ -13,7 +25,7 @@
   transform: translate(-50%, -50%);
   /* width: 80%;
   height: 60%; */
-  background-color: #fff;
+  background-color: var(--color-white);
   overflow: hidden;
   border-radius: 5px;
 }
@@ -32,7 +44,7 @@
 }
 
 .overlay__close svg:hover {
-  color: red;
+  color: var(--color-red);
 }
 
 /* CREATE ROOM (START) */
@@ -46,8 +58,20 @@
 .createRoom__heading {
   font-size: 2rem;
   font-weight: 700;
-  color: #169873;
+  color: var(--color-primary);
+  padding-bottom: 0.7rem;
   margin-bottom: 1rem;
+  position: relative;
+}
+
+.createRoom__heading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 50%;
+  background-color: var(--color-primary);
 }
 
 .createRoom__form {
@@ -60,7 +84,7 @@
   width: 100%;
   border: none;
   outline: none;
-  background-color: #e8e8e8;
+  background-color: var(--color-secondary);
   padding: 1.2rem 1.5rem;
   font-size: 1.8rem;
   position: relative;
@@ -76,8 +100,8 @@
 
 .createRoom__form--input-error {
   /* display: inline-block; */
-  background-color: #d61c4e;
-  color: #fff;
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
   padding: 1px 1.5rem;
   font-size: 1.2rem;
   transform-origin: top;
@@ -92,7 +116,7 @@
 .createRoom__form--button {
   margin: 2rem 0 0 auto;
   display: block;
-  background-color: #e8e8e8;
+  background-color: var(--color-secondary);
   color: #757575;
   outline: none;
   border: none;
@@ -115,16 +139,16 @@
   height: 100%;
   transform-origin: bottom;
   transform: scaleY(8%);
-  background-color: #169873;
+  background-color: var(--color-green);
   transition: transform 0.6s;
 }
 
 .createRoom__form--button-error::after {
-  background-color: #d61c4e;
+  background-color: var(--color-error-bg);
 }
 .createRoom__form--button:hover {
   background-color: transparent;
-  color: #e8e8e8;
+  color: var(--color-secondary);
 }
 
 .createRoom__form--button:hover::after {

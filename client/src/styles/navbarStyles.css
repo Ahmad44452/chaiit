@@ -1,10 +1,22 @@
+:root {
+  --color-primary: #1c2121;
+  --color-secondary: #e6e8e6;
+  --color-bg-line: #3b4750;
+  --color-green: #169873;
+  --color-error-bg: #d61c4e;
+  --color-error: #e6e8e6;
+
+  --color-red: #d61c4e;
+  --color-white: #fff;
+}
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: var(--color-secondary);
   padding: 1rem 2rem;
-  border-bottom: 1px solid #3b4750;
+  border-bottom: 1px solid var(--color-bg-line);
 }
 
 .navbar__logo {

@@ -1,3 +1,15 @@
+:root {
+  --color-primary: #1c2121;
+  --color-secondary: #e6e8e6;
+  --color-bg-line: #3b4750;
+  --color-green: #169873;
+  --color-error-bg: #d61c4e;
+  --color-error: #e6e8e6;
+
+  --color-red: #d61c4e;
+  --color-white: #fff;
+}
+
 *,
 *::before,
 *::after {
@@ -9,7 +21,7 @@
 html {
   font-size: 62.5%;
   font-family: "Lato", sans-serif;
-  background-color: #25333d;
+  background-color: var(--color-primary);
 }
 
 #root {
