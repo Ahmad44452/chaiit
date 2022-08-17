@@ -32,13 +32,13 @@ const BrowseRooms = () => {
           {/* <div className="browseRooms__rooms"> */}
           <ResponsiveMasonry
             className="browseRooms__rooms"
-            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1300: 4, 1600: 5 }}
+            columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 2, 1300: 3 }}
           >
             <Masonry gutter="20px">
               <RoomCard roomName={"Room 1"} roomDescription={"Room 1 Description"} />
               <RoomCard roomName={"Room 2"} roomDescription={"Room 2 Description"} />
               <RoomCard roomName={"Room 3"} roomDescription={"Room 3 Description"} />
-              <RoomCard roomName={"Room 4"} roomDescription={"Room 4 Description"} />
+              <RoomCard roomName={"AHMADGHANIAHMADGHANI"} roomDescription={"Room 4 Description"} />
               <RoomCard roomName={"Room 5"} roomDescription={"Room 5 Description"} />
               <RoomCard roomName={"Room 6"} roomDescription={"Room 6 Description"} />
               <RoomCard roomName={"Room 7"} roomDescription={"Room 7 Description"} />

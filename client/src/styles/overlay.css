@@ -132,6 +132,22 @@
   z-index: -1;
 }
 
+@media only screen and (max-width: 630px) {
+  .createRoom__container {
+    padding: 5rem 5rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .createRoom__container {
+    padding: 3rem 2rem;
+  }
+
+  .createRoom__form {
+    min-width: 80vw;
+  }
+}
+
 /* CREATE ROOM (END) */
 /* CREATE ROOM (END) */
 /* CREATE ROOM (END) */

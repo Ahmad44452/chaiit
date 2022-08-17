@@ -75,33 +75,89 @@
 /* ROOM CARD STYLES START*/
 
 .roomCard {
-  background-color: #e6e8e6;
-  padding: 1rem 2rem;
+  background-color: #1c2121;
+  color: #e6e8e6;
+  padding: 0 2rem;
   border-radius: 5px;
   cursor: default;
-  transition: all 5s;
 }
 
 .roomCard__name {
   text-align: center;
+  font-size: 2.3rem;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.roomCard__description {
+  text-align: justify;
+  padding: 1rem 0;
+  /* margin-top: 0.8rem; */
+  font-size: 1.4rem;
+  position: relative;
+}
+
+.roomCard__description::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  background-color: #e6e8e6;
+}
+
+.roomCard__button--container {
+  text-align: center;
+}
+
+.roomCard__button {
+  color: #e6e8e6;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  border: 1px solid #e6e8e6;
+  background-color: transparent;
+  font-size: 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.6rem 4rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: all 0.5s;
+}
+
+.roomCard__button:hover {
+  background-color: #e6e8e6;
+  color: #1c2121;
 }
 
 .roomCard__bottom {
   transform-origin: top;
   transform: scaleY(0);
   max-height: 0;
-  transition: transform 0.5s, max-height 0.5s;
+  transition: all 0.5s;
 }
 
 .roomCard:hover > .roomCard__bottom {
   transform: scaleY(100%);
-  max-height: 15rem;
+  max-height: 30rem;
 }
 
-.roomCard__description {
-  text-align: justify;
+@media (hover: none) {
+  .roomCard__bottom {
+    transform-origin: top;
+    transform: scaleY(100%);
+    max-height: 30rem;
+  }
+
+  .roomCard__button {
+    background-color: #e6e8e6;
+    color: #1c2121;
+  }
 }
 
 /* ROOM CARD STYLES END*/
 /* ROOM CARD STYLES END*/
-/* ROOM CARD STYLES END*/ ;
+/* ROOM CARD STYLES END*/

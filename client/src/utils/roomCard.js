@@ -8,7 +8,9 @@ const RoomCard = ({ roomName, roomDescription }) => {
       </div>
       <div className="roomCard__bottom">
         <div className="roomCard__description">{roomDescription}</div>
-        <button className="roomCard__button"></button>
+        <div className="roomCard__button--container">
+          <button className="roomCard__button">Join</button>
+        </div>
       </div>
     </div>
   )

@@ -12,7 +12,7 @@ const CreateNewOverlayContent = () => {
     validationSchema: Yup.object({
       roomName: Yup.string().required('Required!')
         .min(3, "Too short!")
-        .max(25, "Too long")
+        .max(20, "Too long!")
         .matches(/^[A-Za-z0-9 _]+$/, "Special characters not allowed!")
         .matches(/^[A-Za-z]/, "First character must be alphabet"),
       roomDescription: Yup.string().max(500, "Max 500 characters allowed")
