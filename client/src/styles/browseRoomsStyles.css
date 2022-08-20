@@ -12,6 +12,7 @@
 
 .browseRooms {
   padding: 2rem;
+  flex-grow: 1;
 }
 
 .browseRooms__header {

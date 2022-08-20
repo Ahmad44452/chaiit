@@ -16,6 +16,7 @@ import "./styles/browseRoomsStyles.css";
 import "./styles/navbarStyles.css";
 import "./styles/overlay.css";
 import "./styles/navbarHoc.css";
+import "./styles/chatScreenStyles.css";
 
 
 export const historyObject = createBrowserHistory({ window })

@@ -95,8 +95,18 @@
 .createRoom__form--textarea:focus {
   font-family: "Lato", sans-serif;
   resize: none;
+  cursor: auto;
+  word-wrap: break-word;
+  text-align: justify;
   font-size: 1.6rem;
 }
+
+.createRoom__form--textarea::-webkit-scrollbar-thumb,
+.createRoom__form--textarea:focus::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
+/* background-clip: padding-box; */
 
 .createRoom__form--input-error {
   /* display: inline-block; */

@@ -10,6 +10,21 @@
   --color-white: #fff;
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
 *,
 *::before,
 *::after {
@@ -22,6 +37,7 @@ html {
   font-size: 62.5%;
   font-family: "Lato", sans-serif;
   background-color: var(--color-primary);
+  /* overflow: hidden; */
 }
 
 #root {
@@ -32,7 +48,7 @@ html {
 only screen and
 only screen and */
 
-@media only screen and (max-width: 75em) {
+/* @media only screen and (max-width: 75em) {
   html {
     font-size: 59%;
   }
@@ -46,4 +62,4 @@ only screen and */
   html {
     font-size: 75%;
   }
-}
+} */
