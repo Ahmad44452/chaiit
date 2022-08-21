@@ -2,6 +2,9 @@
 import React from "react";
 import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
+import socketIO from "socket.io-client";
+
+
 
 ////////////// CUSTOM COMPONENTS
 import MainLayout from "./hoc/MainLayout.js";
@@ -21,6 +24,8 @@ import "./styles/chatScreenStyles.css";
 
 export const historyObject = createBrowserHistory({ window })
 
+const socket = socketIO.connect('http://localhost:3001');
+
 const AppRoutes = () => {
 
 
@@ -28,7 +33,7 @@ const AppRoutes = () => {
     <MainLayout>
       <HistoryRouter history={historyObject}>
         <Routes>
-          <Route path="/chat" element={<ChatScreen />} />
+          <Route path="/chat" element={<ChatScreen socket={socket} />} />
           <Route path="/rooms" element={<BrowseRooms />} />
           <Route path="/" element={<LoginPage />} />
         </Routes>

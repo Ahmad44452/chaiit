@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { AiOutlinePlus } from "react-icons/ai";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-
 import NavbarHoc from "../../hoc/NavbarHoc";
 import { showOverlay } from "../../store/slices/overlaySlice";
 import RoomCard from "../../utils/roomCard";
