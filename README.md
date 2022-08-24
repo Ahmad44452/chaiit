@@ -42,6 +42,8 @@ A simple messaging app with a few features built to echance and get hand-on expe
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 - [![React][react.js]][react-url]
+- [![MongoDB][mongodb][mongodb-url]]
+- [![Express.js][express][express-url]]
 
 <!-- GETTING STARTED -->
 
@@ -86,7 +88,7 @@ To get a local copy up and running follow these simple example steps.
 
 ## Contact
 
-Ahmad Ghani - [Twitter](https://twitter.com/realAhmadhehe)
+Ahmad Ghani - [Twitter](https://twitter.com/realAhmadhehe) - [Discord](https://discord.com/users/910558307968761916) - [LinkedIn](https://linkedin.com/in/ahmadghani)
 
 Project Link: [https://github.com/Ahmad44452/chaiit](https://github.com/Ahmad44452/chaiit)
 
@@ -94,6 +96,7 @@ Project Link: [https://github.com/Ahmad44452/chaiit](https://github.com/Ahmad444
 
 ## Acknowledgments
 
+- [Socket.IO](https://socket.io)
 - [React Icons](https://react-icons.github.io/react-icons/search)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -104,3 +107,7 @@ Project Link: [https://github.com/Ahmad44452/chaiit](https://github.com/Ahmad444
 [linkedin-url]: https://linkedin.com/in/ahmadghani
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
+[mongodb]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
+[mongodb-url]: https://www.mongodb.com
+[express]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
+[express-url]: https://expressjs.com
