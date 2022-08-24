@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const http = require("http");
 const cors = require("cors");
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3001;
 
 ///////////// API ROUTES
 const roomsApi = require("./routes/api/rooms");
