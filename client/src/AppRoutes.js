@@ -24,7 +24,7 @@ import "./styles/globalErrorStyles.css";
 
 export const historyObject = createBrowserHistory({ window })
 
-const socket = socketIO.connect('http://localhost:3001');
+const socket = socketIO.connect('');
 
 const AppRoutes = () => {
 

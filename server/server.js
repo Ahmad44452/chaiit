@@ -39,7 +39,12 @@ app.use(express.json());
 app.use("/api/room", roomsApi);
 app.use("/api/user", usersApi);
 
+app.use(express.static('client/build'));
 
+const path = require("path");
+app.get('/*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'))
+})
 
 
 socketIO.on('connection', (socket) => {
@@ -123,21 +128,6 @@ socketIO.on('connection', (socket) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.send(`
-  <html>
-    <body>
-      <h1>Server is running</h1>
-    </body>
-  </html>`)
-})
-
-app.get("/randomData", (req, res) => {
-  res.status(200).json({
-    name: "Ahmad",
-    age: 18
-  })
-})
 
 server.listen(port, () => {
   console.log("Server is running!")
