@@ -1,0 +1,30 @@
+:root {
+  --color-primary: #1c2121;
+  --color-secondary: #e6e8e6;
+  --color-bg-line: #3b4750;
+  --color-green: #169873;
+  --color-error-bg: #d61c4e;
+  --color-error: #e6e8e6;
+
+  --color-red: #d61c4e;
+  --color-white: #fff;
+}
+
+.globalError {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+  z-index: 100;
+  transform: translateY(-150%);
+  transition: all 0.8s;
+}
+
+.globalError__show {
+  transform: translateY(0);
+}

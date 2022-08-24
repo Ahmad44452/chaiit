@@ -1,24 +1,34 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AiOutlineSend } from "react-icons/ai";
-import Picker from "emoji-picker-react";
-import { MdOutlineEmojiEmotions } from "react-icons/md"
-import { useSelector } from "react-redux";
+import { AiOutlineSend, AiOutlineClose } from "react-icons/ai";
+import { BiArrowBack } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
 
 import NavbarHoc from "../../hoc/NavbarHoc";
 
-const ChatScreen = ({ socket }) => {
-  const messageInputRef = useRef();
+import { getRoomInfoApi, getPeopleConnectedApi } from "../../store/api/roomsApi";
+import { delRoomInfo } from "../../store/slices/roomsSlice";
 
-  const [isEmojiPicker, setEmojiPicker] = useState(false);
-  const [messages, setMessages] = useState([]);
+import { historyObject } from "../../AppRoutes";
+
+const ChatScreen = ({ socket }) => {
+
+  const { roomId } = useParams();
+
+  const messageInputRef = useRef();
+  const lastMessageRef = useRef();
+  const dispatch = useDispatch();
+
+  const [allMessages, setAllMessages] = useState([]);
+  const [isContentLoading, setContentLoading] = useState(true);
+  const [isConnectedUsersVisible, setConnectedUsersVisible] = useState(false);
+  const [isConnectedPeopleLoading, setConnectedPeopleLoading] = useState(false);
 
   const userReducer = useSelector(state => state.userReducer);
-
-  const onEmojiClick = (event, emojiObject) => {
-    messageInputRef.current.value = messageInputRef.current.value + emojiObject.emoji;
-  }
+  const roomsReducer = useSelector(state => state.roomsReducer);
 
   const formik = useFormik({
     initialValues: {
@@ -33,79 +43,142 @@ const ChatScreen = ({ socket }) => {
   })
 
   const handleSubmit = ({ message }) => {
+
     if (message.trim() && userReducer && userReducer.username) {
       socket.emit('message', {
-        text: message,
+        text: message.trim(),
         name: userReducer.username,
         id: `${socket.id}${Math.random()}`,
         socketID: socket.id,
+        roomId: roomId
       });
+      formik.resetForm();
     }
-    messageInputRef.current.value = '';
+
   }
 
   useEffect(() => {
-    socket.on("messageResponse", (data) => setMessages([...messages, data]))
-  }, [socket, messages])
+    if (userReducer && userReducer.username === "") {
+      historyObject.replace("/");
+    }
+  }, [userReducer])
+
+  useEffect(() => {
+    socket.on("messageResponse", (data) => setAllMessages(prev => [...prev, data]));
+  }, [socket])
+
+  useEffect(() => {
+    lastMessageRef.current?.scrollIntoView({ behaviour: 'smooth' })
+  }, [allMessages])
+
+  useEffect(() => {
+
+    if (roomsReducer && roomsReducer.connectedRoomId === "") {
+      setContentLoading(true);
+      dispatch(getRoomInfoApi(roomId)).then(() => {
+        socket.emit("join_room", roomId);
+        setContentLoading(false);
+      });
+    }
+
+  }, [dispatch, roomId, roomsReducer, socket])
+
+  useEffect(() => {
+    return () => {
+      socket.emit("leave_room", roomId);
+      dispatch(delRoomInfo())
+    }
+  }, [dispatch])
 
   return (
     <NavbarHoc>
       <div className="chatScreen">
-        <div className="chatScreen__online">
-          <h3 className="chatScreen__online--header">Online Users</h3>
-          <div className="chatScreen__online--user">Ahmad</div>
-          <div className="chatScreen__online--user">Nabeel</div>
-          <div className="chatScreen__online--user">Afzal</div>
-          <div className="chatScreen__online--user">Arslan</div>
-        </div>
-        <div className="chatScreen__chat">
-          <div className="chatScreen__chat--header" style={{ color: "#fff" }}>header goes brrrr</div>
-          <div className="chatScreen__chat--display">
-            <div className="chatScreen__chat--message chatScreen__chat--message-incoming">
-              <div className="chatScreen__chat--message-user">{"Ahmad Yoooo"}</div>
-              <div className="chatScreen__chat--message-text">{"Hello\nHi sad asd asd asd a"}</div>
-            </div>
-            <div className="chatScreen__chat--message chatScreen__chat--message-incoming">How are you?</div>
-            <div className="chatScreen__chat--message chatScreen__chat--message-outgoing">Hi</div>
-            <div className="chatScreen__chat--message chatScreen__chat--message-outgoing">I am good</div>
-            <div className="chatScreen__chat--message chatScreen__chat--message-outgoing">What about you?</div>
-            <div className="chatScreen__chat--message chatScreen__chat--message-incoming">Alhamdullilah I am doing great myself</div>
-          </div>
+        {
+          isContentLoading ?
+            (<div className="lds-ring"><div></div><div></div><div></div><div></div></div>)
+            :
+            (
+              <>
+                <div className={isConnectedUsersVisible ? "chatScreen__online chatScreen__online--show" : "chatScreen__online"}>
+                  <div className="chatScreen__online--close">
+                    <AiOutlineClose onClick={() => setConnectedUsersVisible(false)} />
+                  </div>
+                  {
+                    isConnectedPeopleLoading ?
+                      (<div className="lds-ring"><div></div><div></div><div></div><div></div></div>)
+                      :
+                      (
+                        <>
+                          <h3 className="chatScreen__online--header">Online Users</h3>
+                          {
+                            roomsReducer.connectedPeople.map((item, index) => (
+                              <div key={index} className="chatScreen__online--user">{item}</div>
+                            ))
+                          }
+                        </>
+                      )
+                  }
 
-          <form className="chatScreen__chat--form">
-            <div onClick={() => setEmojiPicker(prev => !prev)} className="chatScreen__chat--emoji">
-              <div className={isEmojiPicker ? "chatScreen__chat--emoji-panel chatScreen__chat--emoji-panel-visible" : "chatScreen__chat--emoji-panel"}>
-                <Picker onEmojiClick={onEmojiClick} />
-              </div>
-              <MdOutlineEmojiEmotions />
-            </div>
-            <textarea
-              ref={messageInputRef}
-              autoComplete="off"
-              type="text"
-              rows="1"
-              placeholder="Type message..."
-              className="chatScreen__chat--input"
-              {...formik.getFieldProps('message')}
-              onKeyDown={(e) => {
-                const keyCode = e.which || e.keyCode;
+                </div>
+                <div className="chatScreen__chat">
+                  <div className="chatScreen__chat--header">
+                    <Link to={"/rooms"}>
+                      <button><BiArrowBack /></button>
+                    </Link>
+                    <div>{roomsReducer.connectedRoomName}</div>
+                    <button onClick={() => {
+                      setConnectedPeopleLoading(true);
+                      setConnectedUsersVisible(true);
+                      dispatch(getPeopleConnectedApi(roomId)).then(() => { setConnectedPeopleLoading(false); })
+                    }} ><GiHamburgerMenu /></button>
+                  </div>
+                  <div className="chatScreen__chat--display">
+                    {
+                      allMessages ?
+                        allMessages.map(item => (
+                          <div key={item.id} className={item.socketID === socket.id ? "chatScreen__chat--message chatScreen__chat--message-outgoing" : "chatScreen__chat--message chatScreen__chat--message-incoming"} >
+                            <div className="chatScreen__chat--message-user">{item.socketID === socket.id ? "You" : item.name}</div>
+                            <div className="chatScreen__chat--message-text">{item.text}</div>
+                          </div>
+                        ))
+                        : null
+                    }
+                    <div ref={lastMessageRef}></div>
+                  </div>
 
-                // 13 represents the Enter key
-                if (keyCode === 13 && !e.shiftKey) {
-                  // Don't generate a new line
-                  e.preventDefault();
-                  formik.handleSubmit();
-                  // console.log("submitted")
-                  // console.log(document.querySelector(".chatScreen__chat--form"));
-                  // Do something else such as send the message to back-end
-                  // ...
-                }
+                  <form className="chatScreen__chat--form">
+                    <textarea
+                      autoComplete="off"
+                      type="text"
+                      rows="1"
+                      placeholder="Type message..."
+                      ref={messageInputRef}
+                      className="chatScreen__chat--input"
 
-              }}
-            />
-            <button className="chatScreen__chat--submit" type="submit"><AiOutlineSend /></button>
-          </form>
-        </div>
+                      onKeyDown={(e) => {
+                        const keyCode = e.which || e.keyCode;
+
+                        // 13 represents the Enter key
+                        if (keyCode === 13 && !e.shiftKey) {
+                          // Don't generate a new line
+                          e.preventDefault();
+                          formik.submitForm();
+                          // console.log("submitted")
+                          // console.log(document.querySelector(".chatScreen__chat--form"));
+                          // Do something else such as send the message to back-end
+                          // ...
+                        }
+                      }}
+
+                      {...formik.getFieldProps('message')}
+                    />
+                    <button className="chatScreen__chat--submit" onClick={(e) => { e.preventDefault(); formik.submitForm(); }} type="submit"><AiOutlineSend /></button>
+                  </form>
+                </div>
+              </>
+            )
+        }
+
       </div>
     </NavbarHoc>
   )

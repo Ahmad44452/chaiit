@@ -18,7 +18,6 @@ const Overlay = (props) => {
           <AiOutlineClose onClick={() => dispatch(hideOverlay())} />
         </div>
         <div className="overlay__content">
-          {/*content goes here*/}
           {props.children}
         </div>
       </div>

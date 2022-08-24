@@ -5,7 +5,6 @@ import { createBrowserHistory } from "history";
 import socketIO from "socket.io-client";
 
 
-
 ////////////// CUSTOM COMPONENTS
 import MainLayout from "./hoc/MainLayout.js";
 import LoginPage from "./components/LoginPage/index.js";
@@ -20,6 +19,7 @@ import "./styles/navbarStyles.css";
 import "./styles/overlay.css";
 import "./styles/navbarHoc.css";
 import "./styles/chatScreenStyles.css";
+import "./styles/globalErrorStyles.css";
 
 
 export const historyObject = createBrowserHistory({ window })
@@ -28,14 +28,13 @@ const socket = socketIO.connect('http://localhost:3001');
 
 const AppRoutes = () => {
 
-
   return (
     <MainLayout>
       <HistoryRouter history={historyObject}>
         <Routes>
-          <Route path="/chat" element={<ChatScreen socket={socket} />} />
-          <Route path="/rooms" element={<BrowseRooms />} />
-          <Route path="/" element={<LoginPage />} />
+          <Route path="/chat/:roomId" element={<ChatScreen socket={socket} />} />
+          <Route path="/rooms" element={<BrowseRooms socket={socket} />} />
+          <Route path="/" element={<LoginPage socket={socket} />} />
         </Routes>
       </HistoryRouter>
     </MainLayout>

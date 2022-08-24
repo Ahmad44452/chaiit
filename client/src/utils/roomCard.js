@@ -1,6 +1,8 @@
 import React from "react";
 
-const RoomCard = ({ roomName, roomDescription }) => {
+import { Link } from "react-router-dom";
+
+const RoomCard = ({ roomName, roomDescription, roomId }) => {
   return (
     <div className="roomCard">
       <div className="roomCard__top">
@@ -9,7 +11,9 @@ const RoomCard = ({ roomName, roomDescription }) => {
       <div className="roomCard__bottom">
         <div className="roomCard__description">{roomDescription}</div>
         <div className="roomCard__button--container">
-          <button className="roomCard__button">Join</button>
+          <Link to={`/chat/${roomId}`}>
+            <button className="roomCard__button">Join</button>
+          </Link>
         </div>
       </div>
     </div>

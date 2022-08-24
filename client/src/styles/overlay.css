@@ -185,3 +185,72 @@
 /* CREATE ROOM (END) */
 /* CREATE ROOM (END) */
 /* CREATE ROOM (END) */
+
+/* INFO OVERLAY (START) */
+/* INFO OVERLAY (START) */
+/* INFO OVERLAY (START) */
+.infoOverlay {
+  padding: 5rem 4rem;
+}
+
+.infoOverlay__heading {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.infoOverlay__heading--heart {
+  color: var(--color-error-bg);
+}
+
+.infoOverlay__link:link,
+.infoOverlay__link:visited {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 2rem;
+  margin-top: 1rem;
+  overflow: hidden;
+}
+
+.infoOverlay__link--linkedin {
+  border: 1px solid #0077b7;
+  color: #0077b7;
+}
+
+.infoOverlay__link--linkedin div {
+  background-color: #0077b7;
+}
+
+.infoOverlay__link--linkedin:hover {
+  background-color: #0077b7;
+  color: #fff;
+}
+
+.infoOverlay__link--github {
+  border: 1px solid #000000;
+  color: #000000;
+}
+
+.infoOverlay__link--github img {
+  background-color: #000000;
+}
+
+.infoOverlay__link--github:hover {
+  background-color: #000000;
+  color: #fff;
+}
+
+.infoOverlay__link--img {
+  height: 41px;
+  /* height: 100%; */
+  margin-right: 0.6rem;
+}
+
+.infoOverlay__link--text {
+  height: 100%;
+  padding: 0;
+}
+/* INFO OVERLAY (END) */
+/* INFO OVERLAY (END) */
+/* INFO OVERLAY (END) */

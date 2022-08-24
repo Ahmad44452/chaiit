@@ -19,10 +19,45 @@
 .chatScreen__online {
   padding: 2rem;
   position: absolute;
-  left: 0;
+  top: 0;
+  right: 150%;
   width: 100%;
   height: 100%;
-  display: none;
+  z-index: 50;
+  text-align: center;
+  color: var(--color-secondary);
+  background-color: var(--color-primary);
+  transition: all 0.8s;
+}
+
+.chatScreen__online--show {
+  right: 0;
+}
+
+.chatScreen__online--close {
+  position: absolute;
+  top: 6px;
+  right: 1px;
+}
+
+.chatScreen__online--close svg {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.chatScreen__online--close svg:hover {
+  color: var(--color-red);
+}
+
+.chatScreen__online--header {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.chatScreen__online--user {
+  font-size: 1.8rem;
 }
 
 .chatScreen__chat {
@@ -30,6 +65,43 @@
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.chatScreen__chat--header {
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg-line);
+  position: relative;
+}
+
+.chatScreen__chat--header button {
+  -webkit-tap-highlight-color: transparent;
+  color: var(--color-secondary);
+  outline: none;
+  border: none;
+  padding: 0.3rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.chatScreen__chat--header button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.chatScreen__chat--header button:hover svg {
+  color: #169873;
+}
+
+.chatScreen__chat--header div {
+  font-size: 1.5rem;
+  padding: 0.3rem 0;
+  text-align: center;
 }
 
 .chatScreen__chat--display {
@@ -108,13 +180,24 @@
 }
 
 .chatScreen__chat--message-user {
-  color: var(--color-primary);
+  color: #31087b;
+  font-size: 1.5rem;
+  font-weight: 900;
   width: 100%;
+  border-bottom: 1px solid #31087b;
+}
+
+.chatScreen__chat--message-outgoing .chatScreen__chat--message-user {
+  text-align: left;
+}
+
+.chatScreen__chat--message-incoming .chatScreen__chat--message-user {
   text-align: right;
 }
 
 .chatScreen__chat--message-text {
   white-space: pre-line;
+  padding: 0.7rem 0;
 }
 
 .chatScreen__chat--form {
@@ -124,39 +207,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.chatScreen__chat--emoji {
-  -webkit-tap-highlight-color: transparent;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 1rem;
-  cursor: pointer;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  background-color: var(--color-bg-line);
-  border-right: 1px solid var(--color-secondary);
-  position: relative;
-}
-
-.chatScreen__chat--emoji svg {
-  padding: 0;
-  width: 2rem;
-  height: 2rem;
-  color: var(--color-secondary);
-}
-
-.chatScreen__chat--emoji-panel {
-  position: absolute;
-  left: 5px;
-  bottom: 130%;
-  display: none;
-}
-
-.chatScreen__chat--emoji-panel-visible {
-  display: block;
 }
 
 .chatScreen__chat--input,
@@ -169,6 +219,8 @@
   font-size: 1.8rem;
   height: 100%;
   cursor: auto;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
   background-color: var(--color-bg-line);
   color: var(--color-secondary);
   resize: none;

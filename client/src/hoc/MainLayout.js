@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import Overlay from "../components/Overlays/Overlay";
-import UserOverlayContent from "../components/Overlays/UserOverlayContent";
 import InfoOverlayContent from "../components/Overlays/InfoOverlayContent";
 import CreateNewOverlayContent from "../components/Overlays/createNewOverlayContent";
+import GlobalError from "../components/GlobalError";
 
 const MainLayout = (props) => {
 
@@ -19,8 +19,6 @@ const MainLayout = (props) => {
               if (overlayReducer) {
                 if (overlayReducer.component === "info") {
                   return <InfoOverlayContent />
-                } else if (overlayReducer.component === "user") {
-                  return <UserOverlayContent />
                 } else if (overlayReducer.component === "createRoom") {
                   return <CreateNewOverlayContent />
                 }
@@ -29,7 +27,7 @@ const MainLayout = (props) => {
             }
           </Overlay> : null
       }
-
+      <GlobalError />
       {props.children}
     </>
   )

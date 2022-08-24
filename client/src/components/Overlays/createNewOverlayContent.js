@@ -1,8 +1,13 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+
+import { createRoomApi } from "../../store/api/roomsApi";
 
 const CreateNewOverlayContent = () => {
+
+  const dispatch = useDispatch();
 
   const formik = useFormik({
     initialValues: {
@@ -19,12 +24,13 @@ const CreateNewOverlayContent = () => {
         .matches(/^[A-Za-z]/, "First character must be alphabet")
     }),
     onSubmit: (values) => {
-      //remember to trim
-      console.log(values)
+      handleSubmit(values);
     }
   })
 
-
+  const handleSubmit = (values) => {
+    dispatch(createRoomApi(values.roomName, values.roomDescription))
+  }
 
   return (
     <div className="createRoom__container">

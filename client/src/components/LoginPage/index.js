@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-import { setUsernameApi } from "../../store/api/userApi";
+import { signInUserApi } from "../../store/api/userApi";
 
-const LoginPage = () => {
+import { historyObject } from "../../AppRoutes";
 
+const LoginPage = ({ socket }) => {
+
+  const userReducer = useSelector(state => state.userReducer);
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -21,19 +24,25 @@ const LoginPage = () => {
         .matches(/^[A-Za-z]/, "First character must be alphabet")
     }),
     onSubmit: (values) => {
-      handleSubmit(values);
+      handleSubmit(values, socket);
     }
   })
 
-  const handleSubmit = (values) => {
-    dispatch(setUsernameApi(values.username));
+  const handleSubmit = (values, socket) => {
+    dispatch(signInUserApi(values.username, socket.id));
   }
+
+  useEffect(() => {
+    if (userReducer && userReducer.username) {
+      historyObject.replace("/rooms")
+    }
+  }, [userReducer])
 
   return (
     <div className="login-container">
       <div className="login__left">
         <div className="login__left--container">
-          <h1 className="login__heading">chait</h1>
+          <h1 className="login__heading">chaiit</h1>
         </div>
       </div>
       <div className="login__right">
