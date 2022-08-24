@@ -9,8 +9,6 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -42,8 +40,8 @@ A simple messaging app with a few features built to echance and get hand-on expe
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 - [![React][react.js]][react-url]
-- [![MongoDB][mongodb][mongodb-url]]
-- [![Express.js][express][express-url]]
+- [![MongoDB][mongodb]][mongodb-url]
+- [![Express.js][express]][express-url]
 
 <!-- GETTING STARTED -->
 
@@ -107,7 +105,6 @@ Project Link: [https://github.com/Ahmad44452/chaiit](https://github.com/Ahmad444
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[linkedin-url]: https://linkedin.com/in/ahmadghani
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [mongodb]: https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white
