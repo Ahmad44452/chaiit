@@ -97,7 +97,10 @@ Project Link: [https://github.com/Ahmad44452/chaiit](https://github.com/Ahmad444
 ## Acknowledgments
 
 - [Socket.IO](https://socket.io)
+- [Mongoose](https://mongoosejs.com)
 - [React Icons](https://react-icons.github.io/react-icons/search)
+- [React Router](https://reactrouter.com)
+- [Formik](https://formik.org)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
