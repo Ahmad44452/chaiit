@@ -134,14 +134,12 @@ const ChatScreen = ({ socket }) => {
                   </div>
                   <div className="chatScreen__chat--display">
                     {
-                      allMessages ?
-                        allMessages.map(item => (
-                          <div key={item.id} className={item.socketID === socket.id ? "chatScreen__chat--message chatScreen__chat--message-outgoing" : "chatScreen__chat--message chatScreen__chat--message-incoming"} >
-                            <div className="chatScreen__chat--message-user">{item.socketID === socket.id ? "You" : item.name}</div>
-                            <div className="chatScreen__chat--message-text">{item.text}</div>
-                          </div>
-                        ))
-                        : null
+                      allMessages.map(item => (
+                        <div key={item.id} className={item.socketID === socket.id ? "chatScreen__chat--message chatScreen__chat--message-outgoing" : "chatScreen__chat--message chatScreen__chat--message-incoming"} >
+                          <div className="chatScreen__chat--message-user">{item.socketID === socket.id ? "You" : item.name}</div>
+                          <div className="chatScreen__chat--message-text">{item.text}</div>
+                        </div>
+                      ))
                     }
                     <div ref={lastMessageRef}></div>
                   </div>
