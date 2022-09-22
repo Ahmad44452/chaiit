@@ -22,7 +22,9 @@
     A simple messaging app
     <br />
     <br />
+    <!-- 
     <a href="https://chaiit.herokuapp.com">View Demo</a>
+    -->
   </p>
 </div>
 
